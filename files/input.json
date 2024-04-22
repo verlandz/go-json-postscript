@@ -1,0 +1,13 @@
+{   
+    "ori": {
+        "id": 1,
+        "word": "a",
+        "code": false,
+        "score": 0.1
+    },
+    "json_string": "{\"id\":2,\"word\":\"b\",\"code\":true,\"score\":0.2}",
+    "json_strings": [
+        {"json_string": "{\"id\":3,\"word\":\"c\",\"code\":false,\"score\":0.3}"},
+        {"json_string": "{\"id\":4,\"word\":\"d\",\"code\":true,\"score\":0.4}"}
+    ]
+}
