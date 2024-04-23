@@ -15,8 +15,8 @@ Provide a list of postscripts for your JSON. You can also add / modify according
 ### convertJSONStrings
 
 Input
-```
-{
+```json
+{   
     "ori": {
         "id": 1,
         "word": "a",
@@ -32,37 +32,37 @@ Input
 ```
 
 Output
-```
+```json
 {
-	"json_string": {
-		"code": true,
-		"id": 2,
-		"score": 0.2,
-		"word": "b"
-	},
-	"json_strings": [
-		{
-			"json_string": {
-				"code": false,
-				"id": 3,
-				"score": 0.3,
-				"word": "c"
-			}
-		},
-		{
-			"json_string": {
-				"code": true,
-				"id": 4,
-				"score": 0.4,
-				"word": "d"
-			}
-		}
-	],
-	"ori": {
-		"code": false,
-		"id": 1,
-		"score": 0.1,
-		"word": "a"
-	}
+    "json_string": {
+        "code": true,
+        "id": 2,
+        "score": 0.2,
+        "word": "b"
+    },
+    "json_strings": [
+        {
+            "json_string": {
+                "code": false,
+                "id": 3,
+                "score": 0.3,
+                "word": "c"
+            }
+        },
+        {
+            "json_string": {
+                "code": true,
+                "id": 4,
+                "score": 0.4,
+                "word": "d"
+            }
+        }
+    ],
+    "ori": {
+        "code": false,
+        "id": 1,
+        "score": 0.1,
+        "word": "a"
+    }
 }
 ```

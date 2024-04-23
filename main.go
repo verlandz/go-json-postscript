@@ -12,7 +12,7 @@ import (
 const (
 	INPUT_FILE_PATH    = "files/input.json"
 	OUTPUT_FILE_PATH   = "files/output.json"
-	OUTPUT_FILE_INDENT = "	"
+	OUTPUT_FILE_INDENT = "    "
 	OUTPUT_FILE_PERM   = 0644
 )
 
