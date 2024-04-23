@@ -52,6 +52,7 @@ func main() {
 	}()
 
 	// blocks
+	log.Println("Listening...")
 	for {
 	}
 }
