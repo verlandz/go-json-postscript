@@ -2,8 +2,10 @@ package main
 
 import (
 	"encoding/json"
+	"log"
 	"os"
 
+	"github.com/fsnotify/fsnotify"
 	"github.com/verlandz/go-json-postscript/postscripts"
 )
 
@@ -15,6 +17,46 @@ const (
 )
 
 func main() {
+	// create watcher
+	watcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer watcher.Close()
+
+	// watch input file
+	err = watcher.Add(INPUT_FILE_PATH)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// listening for events
+	go func() {
+		for {
+			select {
+			case event, ok := <-watcher.Events:
+				if !ok {
+					return
+				}
+				if event.Has(fsnotify.Write) {
+					generateOutput()
+					log.Printf("(src:%v) Success!\n", event.Name)
+				}
+			case err, ok := <-watcher.Errors:
+				if !ok {
+					return
+				}
+				panic(err)
+			}
+		}
+	}()
+
+	// blocks
+	for {
+	}
+}
+
+func generateOutput() {
 	// read input
 	input, err := os.ReadFile(INPUT_FILE_PATH)
 	if err != nil {
@@ -38,6 +80,4 @@ func main() {
 	if err := os.WriteFile(OUTPUT_FILE_PATH, output, OUTPUT_FILE_PERM); err != nil {
 		panic(err)
 	}
-
-	return
 }
